@@ -16,7 +16,9 @@
     "fix": "npm run lint -- --fix",
     "build": "babel src -d lib && webpack -p",
     "toc": "markdown-toc -i README.md",
-    "prepublishOnly": "npm test && npm run build && pkg-ok"
+    "prepublishOnly": "npm test && npm run build && pkg-ok",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -28,7 +30,7 @@
     "express": "^4.17.1",
     "express-urlrewrite": "^1.2.0",
     "json-parse-helpfulerror": "^1.0.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "lodash-id": "^0.14.0",
     "lowdb": "^1.0.0",
     "method-override": "^3.0.0",
@@ -39,8 +41,9 @@
     "pluralize": "^8.0.0",
     "request": "^2.88.0",
     "server-destroy": "^1.0.1",
-    "update-notifier": "^3.0.1",
-    "yargs": "^14.0.0"
+    "update-notifier": "^6.0.0",
+    "yargs": "^14.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -117,5 +120,6 @@
   },
   "jest": {
     "testURL": "http://localhost/"
-  }
+  },
+  "snyk": true
 }
